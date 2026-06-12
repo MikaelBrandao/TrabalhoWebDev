@@ -1,1 +1,1 @@
-console.log("Programa iniciado!");
+console.log('Alteração Teste');
