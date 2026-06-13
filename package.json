@@ -2,9 +2,9 @@
   "name": "trabalhowebdev",
   "version": "1.0.0",
   "description": "",
-  "main": "build/main.js",
+  "main": "build/server.js",
   "scripts": {
-    "start": "npm run build && node build/main.js",
+    "start": "npm run build && node build/server.js",
     "build": "tsc",
     "watch": "tsc --watch"
   },

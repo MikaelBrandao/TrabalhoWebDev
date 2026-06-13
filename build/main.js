@@ -1,4 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-console.log("Programa iniciado!");
+console.log('Alteração Teste');
+export {};
 //# sourceMappingURL=main.js.map
