@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Painel de Gerenciamento - PPI</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <header>
+ <h1>Gerenciador de Entidades</h1>
+ </header>
+ <main class="container">
+ <!-- Formulário de Entrada de Dados -->
+ <section class="formulario-box">
+ <h2>Novo Cadastro</h2>
+ <form id="formCadastro">
+ <label for="txtTitulo">Título:</label>
+ <input type="text" id="txtTitulo" required placeholder="Digite o
+título...">
+ <label for="txtDescricao">Descrição:</label>
+ <textarea id="txtDescricao" required placeholder="Digite a
+descrição..."></textarea>
+ <button type="submit">Salvar Registro</button>
+ </form>
+ </section>
+ <!-- Container de Renderização Dinâmica -->
+ <section class="listagem-box">
+ <h2>Registros Salvos (Servidor em Memória)</h2>
+ <div id="listaContainer" class="lista-grid">
+ <!-- Inserido via TypeScript dinamicamente -->
+ <p class="aviso-vazio">Carregando dados locais...</p>
+ </div>
+ </section>
+ </main>
+<!-- ATENÇÃO: O navegador consome o arquivo compilado compilado em JAVASCRIPT (.js) --
+>
+ <script src="app.js"></script>
+</body>
+</html>

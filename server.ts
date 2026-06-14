@@ -38,7 +38,7 @@ app.get('/items', (req: Request, res: Response) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('API de Livros funcionando!');
+  res.app.use(express.static('Client'));
 });
 
 // ROTA 2: POST /recurso (Cadastro de Dados)

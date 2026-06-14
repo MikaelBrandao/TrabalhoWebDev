@@ -21,7 +21,7 @@ app.get('/items', (req, res) => {
     res.status(200).json(bancoDadosMemoria);
 });
 app.get('/', (req, res) => {
-    res.send('API de Livros funcionando!');
+    res.app.use(express.static('Client'));
 });
 // ROTA 2: POST /recurso (Cadastro de Dados)
 app.post('/items', (req, res) => {
