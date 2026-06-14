@@ -20,6 +20,9 @@ app.get('/items', (req, res) => {
     // Retorna o status HTTP 200 (OK) e o array completo convertido em JSON
     res.status(200).json(bancoDadosMemoria);
 });
+app.get('/', (req, res) => {
+    res.send('API de Livros funcionando!');
+});
 // ROTA 2: POST /recurso (Cadastro de Dados)
 app.post('/items', (req, res) => {
     const { titulo, descricao } = req.body;
