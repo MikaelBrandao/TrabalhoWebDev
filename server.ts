@@ -3,6 +3,7 @@ import express from "express";
 import type { Request, Response } from "express";
 import cors from 'cors';
 
+
 const app = express();
 
 const PORTA = 3000;
@@ -17,9 +18,16 @@ export interface IItemSistema {
 // MIDDLEWARES OBRIGATÓRIOS
 app.use(cors()); // Permite que o Front-end consuma esta API mesmo estando em portas diferentes
 
+
 app.use(express.json()); // Configura o servidor para conseguir ler corpos de requisição formatados em JSON
 // BANCO DE DADOS EM MEMÓRIA (ARRAY TIPADO)
 // Substitui temporariamente o uso de bancos de dados relacionais nesta etapa inicial
+
+
+app.use(express.static('Client'));  // Serve os arquivos da pasta "Client" para o navegador.
+// Quando alguém acessa "/", o Express procura automaticamente os arquivos públicos nessa pasta (ex: index.html, style.css e script.js).
+// Por isso o HTML passou a abrir no navegador.
+
 
 const bancoDadosMemoria: IItemSistema[] = [
  {
@@ -35,10 +43,6 @@ const bancoDadosMemoria: IItemSistema[] = [
 app.get('/items', (req: Request, res: Response) => {
 // Retorna o status HTTP 200 (OK) e o array completo convertido em JSON
  res.status(200).json(bancoDadosMemoria);
-});
-
-app.get('/', (req, res) => {
-  res.app.use(express.static('Client'));
 });
 
 // ROTA 2: POST /recurso (Cadastro de Dados)

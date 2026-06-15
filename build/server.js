@@ -7,6 +7,7 @@ app.use(cors()); // Permite que o Front-end consuma esta API mesmo estando em po
 app.use(express.json()); // Configura o servidor para conseguir ler corpos de requisição formatados em JSON
 // BANCO DE DADOS EM MEMÓRIA (ARRAY TIPADO)
 // Substitui temporariamente o uso de bancos de dados relacionais nesta etapa inicial
+app.use(express.static('Client'));
 const bancoDadosMemoria = [
     {
         id: "1718112000000",
@@ -19,9 +20,6 @@ const bancoDadosMemoria = [
 app.get('/items', (req, res) => {
     // Retorna o status HTTP 200 (OK) e o array completo convertido em JSON
     res.status(200).json(bancoDadosMemoria);
-});
-app.get('/', (req, res) => {
-    res.app.use(express.static('Client'));
 });
 // ROTA 2: POST /recurso (Cadastro de Dados)
 app.post('/items', (req, res) => {
