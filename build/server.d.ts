@@ -1,7 +1,7 @@
 export interface IItemSistema {
     id: string;
     titulo: string;
-    descricao: string;
-    dataCriacao: string;
+    Autor: string;
+    dataPublicacao: string;
 }
 //# sourceMappingURL=server.d.ts.map

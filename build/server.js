@@ -7,13 +7,15 @@ app.use(cors()); // Permite que o Front-end consuma esta API mesmo estando em po
 app.use(express.json()); // Configura o servidor para conseguir ler corpos de requisição formatados em JSON
 // BANCO DE DADOS EM MEMÓRIA (ARRAY TIPADO)
 // Substitui temporariamente o uso de bancos de dados relacionais nesta etapa inicial
-app.use(express.static('Client'));
+app.use(express.static('Client')); // Serve os arquivos da pasta "Client" para o navegador.
+// Quando alguém acessa "/", o Express procura automaticamente os arquivos públicos nessa pasta (ex: index.html, style.css e script.js).
+// Por isso o HTML passou a abrir no navegador.
 const bancoDadosMemoria = [
     {
         id: "1718112000000",
         titulo: "Exemplo Inicial",
-        descricao: "Item padrão inserido automaticamente para testes de listagem.",
-        dataCriacao: new Date().toISOString()
+        Autor: "Item padrão inserido automaticamente para testes de listagem.",
+        dataPublicacao: new Date().toISOString()
     }
 ];
 // ROTA 1: GET /recurso (Listagem de Dados)
@@ -23,18 +25,18 @@ app.get('/items', (req, res) => {
 });
 // ROTA 2: POST /recurso (Cadastro de Dados)
 app.post('/items', (req, res) => {
-    const { titulo, descricao } = req.body;
+    const { titulo, Autor } = req.body;
     // Validação básica de consistência de dados recebidos no corpo
-    if (!titulo || !descricao) {
-        res.status(400).json({ erro: "Campos obrigatórios ausentes: 'titulo' e 'descricao'." });
+    if (!titulo || !Autor) {
+        res.status(400).json({ erro: "Campos obrigatórios ausentes: 'titulo' e 'Autor'." });
         return;
     }
     // Construção do novo registro seguindo estritamente a Interface IItemSistema
     const novoItem = {
         id: Date.now().toString(), // Gera ID único baseado no timestamp atual
         titulo: String(titulo),
-        descricao: String(descricao),
-        dataCriacao: new Date().toISOString()
+        Autor: String(Autor),
+        dataPublicacao: new Date().toISOString()
     };
     // Salvando o dado temporariamente no array
     bancoDadosMemoria.push(novoItem);

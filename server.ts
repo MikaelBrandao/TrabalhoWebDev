@@ -11,8 +11,8 @@ const PORTA = 3000;
 export interface IItemSistema {
  id: string; // Identificador único do registro (ex: gerado por timestamp)
  titulo: string; // Nome representativo do recurso
- descricao: string; // Detalhamento descritivo
- dataCriacao: string; // Armazenamento em formato ISO de data
+ Autor: string; // Detalhamento descritivo
+ dataPublicacao: string; // Armazenamento em formato ISO de data
 }
 
 // MIDDLEWARES OBRIGATÓRIOS
@@ -33,8 +33,8 @@ const bancoDadosMemoria: IItemSistema[] = [
  {
  id: "1718112000000",
  titulo: "Exemplo Inicial",
- descricao: "Item padrão inserido automaticamente para testes de listagem.",
- dataCriacao: new Date().toISOString()
+ Autor: "Item padrão inserido automaticamente para testes de listagem.",
+ dataPublicacao: new Date().toISOString()
  }
 ];
 
@@ -47,10 +47,10 @@ app.get('/items', (req: Request, res: Response) => {
 
 // ROTA 2: POST /recurso (Cadastro de Dados)
 app.post('/items', (req: Request, res: Response) => {
-const { titulo, descricao } = req.body;
+const { titulo, Autor } = req.body;
 // Validação básica de consistência de dados recebidos no corpo
-if (!titulo || !descricao) {
- res.status(400).json({ erro: "Campos obrigatórios ausentes: 'titulo' e 'descricao'." });
+if (!titulo || !Autor) {
+ res.status(400).json({ erro: "Campos obrigatórios ausentes: 'titulo' e 'Autor'." });
 return;
  }
 
@@ -58,8 +58,8 @@ return;
 const novoItem: IItemSistema = {
  id: Date.now().toString(), // Gera ID único baseado no timestamp atual
  titulo: String(titulo),
- descricao: String(descricao),
- dataCriacao: new Date().toISOString()
+ Autor: String(Autor),
+ dataPublicacao: new Date().toISOString()
  };
 // Salvando o dado temporariamente no array
  bancoDadosMemoria.push(novoItem);
