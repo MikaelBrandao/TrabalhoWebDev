@@ -29,14 +29,7 @@ app.use(express.static('Client'));  // Serve os arquivos da pasta "Client" para 
 // Por isso o HTML passou a abrir no navegador.
 
 
-const bancoDadosMemoria: IItemSistema[] = [
- {
- id: "1718112000000",
- titulo: "Exemplo Inicial",
- Autor: "Item padrão inserido automaticamente para testes de listagem.",
- dataPublicacao: new Date().toISOString()
- }
-];
+const bancoDadosMemoria: IItemSistema[] = [];
 
 // ROTA 1: GET /recurso (Listagem de Dados)
 

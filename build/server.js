@@ -10,14 +10,7 @@ app.use(express.json()); // Configura o servidor para conseguir ler corpos de re
 app.use(express.static('Client')); // Serve os arquivos da pasta "Client" para o navegador.
 // Quando alguém acessa "/", o Express procura automaticamente os arquivos públicos nessa pasta (ex: index.html, style.css e script.js).
 // Por isso o HTML passou a abrir no navegador.
-const bancoDadosMemoria = [
-    {
-        id: "1718112000000",
-        titulo: "Exemplo Inicial",
-        Autor: "Item padrão inserido automaticamente para testes de listagem.",
-        dataPublicacao: new Date().toISOString()
-    }
-];
+const bancoDadosMemoria = [];
 // ROTA 1: GET /recurso (Listagem de Dados)
 app.get('/items', (req, res) => {
     // Retorna o status HTTP 200 (OK) e o array completo convertido em JSON

@@ -1,4 +1,4 @@
-const URL_API = 'http://localhost:3000/items';
+const URL_API = '/items';
 // Mapeamento explícito de elementos do DOM com asserção de tipos correta
 const form = document.getElementById('formCadastro') as HTMLFormElement;
 const inputTitulo = document.getElementById('txtTitulo') as HTMLInputElement;
@@ -22,8 +22,8 @@ const card = document.createElement('div');
  card.className = 'card-item';
  card.innerHTML = `
  <h3>${item.titulo}</h3>
- <p>${item.descricao}</p>
- <small>Cadastrado em: ${new Date(item.dataCriacao).toLocaleString()}</
+ <p>${item.Autor}</p>
+ <small>Cadastrado em: ${new Date(item.dataPublicacao).toLocaleString()}</
 small>
  `;
  listaContainer.appendChild(card);
@@ -38,7 +38,7 @@ form.addEventListener('submit', async (evento: SubmitEvent) => {
  evento.preventDefault(); // Impede o recarregamento clássico da página
 const cargaUtil = {
  titulo: inputTitulo.value.trim(),
- descricao: inputDescricao.value.trim()
+ Autor: inputDescricao.value.trim()
  };
 try {
 const resposta = await fetch(URL_API, {
