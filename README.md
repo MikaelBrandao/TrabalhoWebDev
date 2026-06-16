@@ -21,13 +21,6 @@ Tecnologias Utilizadas
 - Git
 - GitHub
 
-Extensões Recomendadas
-- ESLint
-- Prettier
-- Live Server
-- GitLens
-
-
 Como Executar
 1. Instale as dependências:
 
